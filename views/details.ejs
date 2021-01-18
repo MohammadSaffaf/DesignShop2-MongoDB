@@ -1,10 +1,10 @@
 <%- include('./partials/head') %>
     <div class="div-del-edit">
-        <a href="/details/<%= element._id %>/delete">Edit</a>
-        <a href="">Delete</a>
+        <a href="/<%= Details._id %>/editt">Edit</a>
+        <a href="/details/<%= Details._id %>/delete">Delete</a>
     </div>
     <section class="section-details">
-        <img src="<%= Details.picture_Link %> " alt="">
+        <a href="/details/<%= Details._id %>"><img src="<%= Details.picture_Link %> " alt=""></a>
         <div class="div-Item">
             <h2>
                 <%= Details.product_name %>

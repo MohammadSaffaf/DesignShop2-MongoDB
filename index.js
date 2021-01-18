@@ -55,3 +55,35 @@ app.get('/details/:id', (req, res) => {
     .then(result => res.render('details',{Details: result}))
     .catch(err => console.log(err))
 })
+app.get('/details/:id/delete', (req, res) => {
+    // console.log(req.params.id);
+    ShopItem.findByIdAndDelete(req.params.id)
+    // ShopItem.find()
+    .then(result => res.render('details',{Details: result}))
+    .catch(err => console.log(err))
+})
+app.get('/:id/editt', (req, res) => {
+    ShopItem.findById(req.params.id)
+    .then(result => res.render('editt',{editItems: result}))
+    .catch(err => console.log(err))
+})
+
+app.post('/editt/:id/edit', (req, res) =>{
+    console.log(req.body);
+    
+
+    
+    const editItems= {
+        product_name: req.body.product_name,
+        company : req.body.company,
+        price : req.body.price,
+        picture_Link : req.body.picture_Link,
+        link_shop : req.body.link_shop,
+        description : req.body.description,
+    }
+    ShopItem.findByIdAndUpdate(req.params.id, editItems)
+    
+    .then(result => res.redirect('/'))
+    .catch(err => console.log(err))
+    
+})
