@@ -11,6 +11,7 @@
                 <textarea name="description" id="" cols="30" rows="10"
                     placeholder="Write your article here ..."></textarea>
                 <input type="submit" value="ADD PRODUCT">
+
             </form>
         </div>
     </section>
@@ -18,5 +19,22 @@
         <div class="line"></div>
         <div class="augen"><img src="/Group.svg" alt=""></div>
     </section>
+    <%newItems.forEach(element=> {%>
+        <section class="section-Item">
+            <a href=""><img src="<%= element.picture_Link %> " alt=""></a>
+            <div class="div-Item">
+                <h2>
+                    <%= element.product_name %>
+                </h2>
+                <h2>
+                    <%= element.price %>
+                </h2>
+            </div>
+            <p>
+                <%= element.company %>
+            </p>
+        </section>
 
-    <%- include('./partials/foot') %>
+        <%});%>
+
+            <%- include('./partials/foot') %>
