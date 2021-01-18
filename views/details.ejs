@@ -1,20 +1,30 @@
 <%- include('./partials/head') %>
+    <style>
+        .section-details:nth-of-type(7n + 1) {
+            grid-column: 1/-1;
+        }
+    </style>
     <div class="div-del-edit">
         <a href="/<%= Details._id %>/editt">Edit</a>
         <a href="/details/<%= Details._id %>/delete">Delete</a>
     </div>
-    <section class="section-details">
-        <a href="/details/<%= Details._id %>"><img src="<%= Details.picture_Link %> " alt=""></a>
-        <div class="div-Item">
-            <h2>
-                <%= Details.product_name %>
-            </h2>
-            <h2>
-                <%= Details.price %>
-            </h2>
-        </div>
-        <p>
-            <%= Details.company %>
-        </p>
-    </section>
+    <article class="article-Item">
+        <section class="section-details">
+            <a href="/details/<%= Details._id %>"><img src="<%= Details.picture_Link %> " alt=""></a>
+            <div class="div-Item">
+                <h2>
+                    <%= Details.product_name %>
+                </h2>
+                <h2>
+                    <%= Details.price %>
+                </h2>
+            </div>
+            <p>
+                <%= Details.company %>
+            </p>
+        </section>
+    </article>
+    <p>
+        <%= Details.description %>
+    </p>
     <%- include('./partials/foot') %>
